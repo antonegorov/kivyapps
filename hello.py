@@ -12,25 +12,33 @@ class MyGridLayout(GridLayout):
         super(MyGridLayout, self).__init__(**kwargs)
         
         #Set columns
-        self.cols = 2
+        self.cols = 1
+        
+        # Create a second Gridlayout
+        self.top_grid = GridLayout()
+        self.top_grid.cols = 2
         
         # Add widgets
-        self.add_widget(Label(text='Name'))
+        self.top_grid.add_widget(Label(text='Name'))
         # Add Input Box
         self.name = TextInput(multiline=False)
-        self.add_widget(self.name)
+        self.top_grid.add_widget(self.name)
         
         # Add widgets
-        self.add_widget(Label(text='Favourite Colour:'))
+        self.top_grid.add_widget(Label(text='Favourite Colour:'))
         # Add Input Box
         self.colour = TextInput(multiline=False)
-        self.add_widget(self.colour)
+        self.top_grid.add_widget(self.colour)
         
         # Add widgets
-        self.add_widget(Label(text='Favourite Animal:'))
+        self.top_grid.add_widget(Label(text='Favourite Animal:'))
         # Add Input Box
         self.animal = TextInput(multiline=False)
-        self.add_widget(self.animal)
+        self.top_grid.add_widget(self.animal)
+        
+        # Add the new top_grid to our app
+        self.add_widget(self.top_grid)
+        
         
         # Create a Submit Button
         self.submit = Button(text='Submit', font_size=32)
