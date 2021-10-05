@@ -13,9 +13,19 @@ class MyGridLayout(GridLayout):
         
         #Set columns
         self.cols = 1
+        self.row_force_default=True
+        self.row_default_height=120
+        self.col_force_default=True
+        self.col_default_width=100
         
         # Create a second Gridlayout
-        self.top_grid = GridLayout()
+        self.top_grid = GridLayout(
+            row_force_default=True,
+            row_default_height=40,
+            col_force_default=True,
+            col_default_width=100,
+        )
+        # Set number of columns in our new top grid
         self.top_grid.cols = 2
         
         # Add widgets
@@ -41,7 +51,14 @@ class MyGridLayout(GridLayout):
         
         
         # Create a Submit Button
-        self.submit = Button(text='Submit', font_size=32)
+        self.submit = Button(
+            text='Submit',
+            font_size=25,
+            size_hint_y=None,
+            height=50,
+            size_hint_x=None,
+            width=100,
+            )
         #Bind the button
         self.submit.bind(on_press=self.press)
         self.add_widget(self.submit)
